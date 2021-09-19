@@ -9,7 +9,7 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateCol
 class Product{
 
   @PrimaryGeneratedColumn('uuid')
-  id:string; // Porque é um uuid
+  id:string; // tipo string  porque é um uuid
 
   @Column()
   name:string;
