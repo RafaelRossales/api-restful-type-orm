@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import express, { NextFunction, Request, response, Response } from 'express'
+import 'express-async-errors'; // trata exceções de uma promessa
 import cors from 'cors';
 import routes from './routes'
 import AppError from '@shared/errors/AppError';
@@ -36,6 +37,6 @@ app.use(
     })
 });
 
-app.listen(333,() => {
-  console.log('Server started on port 333! ')
+app.listen(3333,() => {
+  console.log('Server started on port 3333! ')
 })

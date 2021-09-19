@@ -4,7 +4,7 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateCol
 /**
  * @ignore
  */
-@Entity('product')
+@Entity('products')
 
 class Product{
 
