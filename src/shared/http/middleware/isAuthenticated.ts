@@ -6,7 +6,7 @@ import { verify } from 'jsonwebtoken';
 /**
  *@interface
  */
-interface TokenPayload{
+interface ITokenPayload{
     iat:number,
     exp:number,
     sub:string
@@ -29,7 +29,7 @@ export default function isAuthenticated(
     try {
       const decodedToken = verify(token,authConfig.jwt.secret);
 
-        const { sub } = decodedToken as TokenPayload;
+        const { sub } = decodedToken as ITokenPayload;
 
         request.user = {
             id:sub
@@ -41,3 +41,6 @@ export default function isAuthenticated(
         throw new AppError('Invalid JWtT Token.');
     }
 }
+
+
+
