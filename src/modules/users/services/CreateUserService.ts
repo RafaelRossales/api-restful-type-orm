@@ -31,7 +31,6 @@ class CreateUserService{
 
     const encryptPassword = await hash(password,8);
 
-
     const user = usersRepository.create({
       name,
       email,

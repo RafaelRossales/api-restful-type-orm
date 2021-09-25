@@ -4,7 +4,7 @@ import { Entity, Column, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateCol
 /**
  * @ignore
  */
-@Entity('users')
+@Entity('user_tokens')
 class UserToken {
   @PrimaryGeneratedColumn('uuid')
   id:string;
