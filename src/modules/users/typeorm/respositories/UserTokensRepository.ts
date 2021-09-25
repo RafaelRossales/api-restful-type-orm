@@ -29,7 +29,7 @@ class UserTokenRepository extends Repository<UserToken>{
 
     await this.save(userToken);
 
-    return ;
+    return userToken;
   }
 }
 
