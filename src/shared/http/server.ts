@@ -8,7 +8,8 @@ import AppError from '@shared/errors/AppError';
 import '@shared/typeorm/';
 import uploadConfig from '@config/upload'
 
-
+//Permite que o node acesser certificados nao autorizados
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
 const app = express();
 
@@ -34,7 +35,6 @@ app.use(
         message:error.message
       });
     }
-
 
     return response.status(500).json({
       status:'error',
