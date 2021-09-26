@@ -23,7 +23,7 @@ class UserTokenRepository extends Repository<UserToken>{
    *@description
    * @param email
    */
-  public async generateToken(user_id:string):Promise<UserToken | undefined>{
+  public async generateToken(user_id:string):Promise<UserToken>{
 
     const userToken = await this.create({ user_id });
 

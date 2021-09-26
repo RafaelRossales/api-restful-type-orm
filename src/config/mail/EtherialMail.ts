@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import HandlebarsMailTemplate from './handlebarsMailTemplate'
+import HandlebarsMailTemplate from './HandlerbarsMailTemplate'
 
 
 interface IMailContact{
@@ -13,7 +13,7 @@ interface ItemplateVariable{
 }
 
 interface IParseMailTemplate{
-  template:string,
+  file:string,
   variables:ItemplateVariable;
 }
 interface ISendMail{
