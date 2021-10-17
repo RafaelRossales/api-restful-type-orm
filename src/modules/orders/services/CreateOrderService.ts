@@ -24,7 +24,7 @@ interface IRequest{
 /**
  * @description - Serviço de criação de orders
  */
-class CreateOrderServer{
+class CreateOrderService{
 
   public async execute({customer_id,products}:IRequest):Promise<Order>{
 
@@ -32,7 +32,11 @@ class CreateOrderServer{
     const customersRepository = getCustomRepository(CustomersRepository);
     const productsRepository = getCustomRepository(ProductRepository);
 
+
+
     const customerExists = await customersRepository.findById(customer_id);
+
+    console.log("Data -----> ",customerExists,customer_id)
 
     if(!customerExists) throw new AppError('Could not  find customer wirh the given id');
 
@@ -68,7 +72,7 @@ class CreateOrderServer{
 
     const updatedProductQuantity = orders_products.map(product => ({
       id:product.product_id,
-      quantity:existsProducts.filter(p => p.id === product.id)[0].quantity - product.quantity,
+      quantity:existsProducts.filter(p => p.id === product.product_id)[0].quantity - product.quantity,
     }));
 
     await productsRepository.save(updatedProductQuantity);
@@ -79,4 +83,4 @@ class CreateOrderServer{
 }
 
 
-export default CreateOrderServer;
+export default CreateOrderService;
