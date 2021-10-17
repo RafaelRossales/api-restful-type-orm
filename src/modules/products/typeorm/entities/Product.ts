@@ -14,7 +14,7 @@ class Product{
 
 
   @OneToMany(() => OrdersProducts,order_products => order_products.product)
-  OrdersProducts:OrdersProducts[]
+  order_products:OrdersProducts[]
 
   @Column()
   name:string;
