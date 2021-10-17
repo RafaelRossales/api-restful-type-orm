@@ -1,0 +1,45 @@
+import Customer from "@modules/customers/typeorm/entities/Customer";
+import Product from "@modules/products/typeorm/entities/Product";
+import {
+  Entity,
+  CreateDateColumn,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
+  Column} from "typeorm";
+import Order from "./Order";
+
+
+/**
+ * @ignore
+ */
+@Entity('orders_products')
+class OrdersProducts {
+  @PrimaryGeneratedColumn('uuid')
+  id:string;
+
+  @ManyToOne(() => Order, order => order.OrdersProducts)
+  @JoinColumn({name:'order_id'})
+  order:Order;
+
+  @ManyToOne(() => Product, product => product.OrdersProducts)
+  @JoinColumn({name:'product_id'})
+  product:Product;
+
+
+  @Column('decimal')
+  price:number;
+
+  @Column('int')
+  quantity:number;
+
+  @CreateDateColumn()
+  created_at:Date;
+
+  @UpdateDateColumn()
+  updated_at:Date;
+}
+
+export default OrdersProducts
+;
